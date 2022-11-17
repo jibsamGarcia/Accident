@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Reconstrucción virtual Accidentología</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <a-entity camera></a-entity>
+    <div class="slider">
+      <div class="slide current">
+        
+      </div>
+      <div class="slide">
+       
+      </div>
+      <div class="slide">
+        
+      </div>
+      <div class="slide">
+        
+      </div>
+      <div class="slide">
+        
+      </div>
+      <div class="slide">
+      
+      </div>
+      <div class="slide">
+      
+      </div>
+      <div class="slide">
+
+      </div>
+      <div class="slide">
+      
+      </div>
+      <div class="slide">
+        
+      </div>
+      <a-scene
+      arjs
+      embedded
+      renderer="logarithmicDepthBuffer: true;"
+      vr-mode-ui="enabled: false"
+      gesture-detector
+      id="scene"
+    >
+   
+      <a-assets>
+        <a-asset-item
+          id="bowser"
+          src="autosglb/auto3.glb"
+        >
+        </a-asset-item>
+        <a-asset-item
+          id="ship"
+          src="autosglb/auto2.glb"
+        >
+      </a-asset-item>
+      </a-assets>
+
+      <a-marker
+        preset="hiro"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+      >
+        <a-entity
+          id="bowser"
+          gltf-model="#bowser"
+          position="0 0 0"
+          rotation="0 0 0"
+          scale="0.200 0.200 0.200"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+
+      <a-marker
+        preset="kanji"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerB"
+      >
+        <a-entity
+          id="ship"
+          gltf-model="#ship"
+          position="0 0 0"
+          rotation="90 0 0"
+          scale="0.200 0.200 0.200"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-marker>
+
+      <a-marker
+      id="animated-marker"
+      type="pattern"
+      preset="custom"
+      url="assets/marker.patt"
+      raycaster="objects: .clickable"
+      emitevents="true"
+      cursor="fuse: false; rayOrigin: mouse;"
+      id="markerC"
+  >
+      <a-image
+          src="assets/asset.png"
+          scale="40 20 20"
+          position="0 -8 -2"
+          class="clickable"
+          rotation="-90 0 0"
+          gesture-handler
+      ></a-image>
+  </a-marker>
+    
+     
+      
+    </a-scene>
+    <div class="buttons">
+      <button id="prev"><i class="fas fa-arrow-left"></i></button>
+      <button id="next"><i class="fas fa-arrow-right"></i></button>
+    </div>
+
+    </div>
+    
+    
+    
+    
+    
+    <script src="main.js"></script>
+  </body>
+  
+</html>
